@@ -1,0 +1,13 @@
+﻿@model AspNetMvcClientSideValidationInPartialView.Models.IndexViewModel
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+
+    <p>
+        client-side validation works perfectly: @Html.TextBoxFor(x => x.PropertyInIndexViewModel)
+    </p>
+
+    @Html.Partial("MyPartial")
+
+    <button type="submit">Submit</button>
+}

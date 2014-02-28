@@ -1,0 +1,13 @@
+﻿@model AspNetMvcClientSideValidationInPartialView.Models.MyPartialViewModel
+
+<p>
+    client-side validation does not work (only server-side): @Html.TextBoxFor(x => x.PropertyInMyPartialViewModel)<br />
+    probably because the client-side rules are not injected, because they are defined in a validator that is a super-class to the current viewmodels validator.
+</p>
+
+<p>
+    client-side validation works:
+    @Html.TextBoxFor(x => x.AnotherPropertyInMyPartialViewModel, Html.GetUnobtrusiveValidationAttributes("AnotherPropertyInMyPartialViewModel"))<br />
+    because the data-val-* attributes are added by manually calling Html.GetUnobtrusiveValidationAttributes()
+</p>
+
